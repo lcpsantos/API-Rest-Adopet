@@ -15,11 +15,11 @@ public class Adocao {
 
     private LocalDateTime data;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) //um tutor pode ter várias adoções
     @JoinColumn(name = "tutor_id")
     private Tutor tutor;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY) //uma adoção tem um pet. O carregamento do ToOne é EAGER por padrão
     @JoinColumn(name = "pet_id")
     private Pet pet;
 

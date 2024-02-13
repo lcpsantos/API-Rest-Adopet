@@ -27,7 +27,7 @@ public class Tutor {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tutor") //um tutor pode ter várias adoções
     private List<Adocao> adocoes;
 
     @Override
