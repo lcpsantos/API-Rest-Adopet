@@ -17,9 +17,7 @@ public class ValidacaoTutorComLimiteDeAdocoesImpl implements ValidacaoSolicitaca
     private AdocaoRepository adocaoRepository;
 
     public void validar(SolicitacaoAdocaoDto dto) {
-        long contadorDeAdocoesPorTutor = adocaoRepository
-                .countByTutorAndStatus(dto.idTutor(),
-                        StatusAdocao.APROVADO);
+        long contadorDeAdocoesPorTutor = adocaoRepository.countByTutorAndStatus(dto.idTutor(), StatusAdocao.APROVADO);
 
         if (contadorDeAdocoesPorTutor >= 5) {
             throw new ValidacaoException(ERRO_TUTOR_LIMITE_ADOCAO);

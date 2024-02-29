@@ -17,6 +17,7 @@ public class ValidacaoPetDisponivelImpl implements ValidacaoSolicitacaoAdocao {
 
     public void validar(SolicitacaoAdocaoDto dto) {
         var pet = petRepository.getReferenceById(dto.idPet());
+
         if (pet.getAdotado()) {
             throw new ValidacaoException(STATUS_SITUACAO_PET_APROVADO);
         }

@@ -17,9 +17,7 @@ public class ValidacaoTutorComAdocaoEmAndamentoImpl implements ValidacaoSolicita
     private AdocaoRepository adocaoRepository;
 
     public void validar(SolicitacaoAdocaoDto dto) {
-        boolean tutorTemAdocaoEmAndamento = adocaoRepository
-                .existsByTutorIdAndStatus(dto.idPet(),
-                        StatusAdocao.AGUARDANDO_AVALIACAO);
+        boolean tutorTemAdocaoEmAndamento = adocaoRepository.existsByTutorIdAndStatus(dto.idPet(), StatusAdocao.AGUARDANDO_AVALIACAO);
 
         if (tutorTemAdocaoEmAndamento) {
             throw new ValidacaoException(ERRO_TUTOR_ADOCAO_AVALIACAO);
