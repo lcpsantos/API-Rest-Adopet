@@ -34,9 +34,9 @@ class AdocaoControllerTest {
 
         //ACT
         var response = mvc.perform(
-            post("/adocoes")
-                .content(json)
-                .contentType(MediaType.APPLICATION_JSON)//indica que o conteúdo da requisição é um JSON
+                post("/adocoes")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)//indica que o conteúdo da requisição é um JSON
         ).andReturn().getResponse();
 
         //ASSERT
@@ -44,7 +44,7 @@ class AdocaoControllerTest {
     }
 
     @Test
-void deveriaDevolverCodigo200QuandoSolicitarAdocaoComDadosValidos() throws Exception {
+    void deveriaDevolverCodigo200QuandoSolicitarAdocaoComDadosValidos() throws Exception {
         //ARRANGE
 
 //        String json = """
@@ -58,9 +58,9 @@ void deveriaDevolverCodigo200QuandoSolicitarAdocaoComDadosValidos() throws Excep
 
         //ACT
         var response = mvc.perform(
-            post("/adocoes")
-                .content(jsonDto.write(dto).getJson())
-                .contentType(MediaType.APPLICATION_JSON)
+                post("/adocoes")
+                        .content(jsonDto.write(dto).getJson())
+                        .contentType(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
 
         //ASSERT
